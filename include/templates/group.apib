@@ -1,0 +1,74 @@
+# Group {RESOURCES_NAME}
+
+## {RESOURCE_NAME} [/{RESOURCE_TYPE_NAME}/{id}]
+
++ Parameters
+    + id (string)
+        The id of desired resource.
+
+### Retrieve {RESOURCE_NAME} [GET]
+Endpoint allows consumer to retrieve a resource.
+
++ Response 200 (application/json)
+    + Attributes ({RESOURCE_NAME}Response)
++ Response 404 (application/json)
+    + Attributes (ResourceNotFoundResponse)
++ Response 422 (application/json)
+    + Attributes (UnprocessableEntityResponse)
+    
+### Update {RESOURCE_NAME} [PATCH]
+Endpoint allows consumer to update an existing resource.
+
++ Request (application/json)
+    + Attributes (Update{RESOURCE_NAME}Request)
++ Response 200 (application/json)
+    + Attributes ({RESOURCE_NAME}Response)
++ Response 404 (application/json)
+    + Attributes (ResourceNotFoundResponse)
++ Response 422 (application/json)
+    + Attributes (UnprocessableEntityResponse)
+
+### Remove {RESOURCE_NAME} [DELETE]
+Endpoint allows consumer to remove existing resource.
+
++ Response 204 (application/json)
++ Response 404 (application/json)
+    + Attributes (ResourceNotFoundResponse)
+
+## {RESOURCES_NAME} [/{RESOURCE_TYPE_NAME}]
+
+### Retrieve {RESOURCES_NAME} [GET]
+Endpoint allows consumer to retrieve collection of resources.
+
++ Response 200 (application/json)
+    + Attributes (UsersResponse)
+
+### Create {RESOURCE_NAME} [POST]
+Endpoint allows consumer to create new resource.
+
++ Request (application/json)
+    + Attributes (Create{RESOURCE_NAME}Request)
++ Response 201 (application/json)
+    + Headers
+
+            Location: /{RESOURCE_TYPE_NAME}/{id}
+
+    + Attributes ({RESOURCE_NAME}Response)
++ Response 422 (application/json)
+    + Attributes (UnprocessableEntityResponse)
+
+## Data Structures
+
+## {RESOURCE_NAME}Response (ResourceResponse)
++ data ({RESOURCE_NAME}Resource)
+
+## {RESOURCES_NAME}Response (CollectionResponse)
++ data (array[{RESOURCE_NAME}Resource])
+
+## Update{RESOURCE_NAME}Request (ResourceRequest)
++ data ({RESOURCE_NAME}Resource)
+
+## Create{RESOURCE_NAME}Request (ResourceRequest)
++ data (object)
+    + Include {RESOURCE_NAME}ResourceType
+    + Include {RESOURCE_NAME}ResourceAttributes

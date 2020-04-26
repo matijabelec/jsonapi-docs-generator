@@ -1,0 +1,11 @@
+// hide badge on left-side menu
+.badge {
+    display: none;
+}
+
+// hide "Schema" details on request/response details
+.title ~ .collapse-content h5:last-of-type,
+.title ~ .collapse-content h5:last-of-type + pre,
+.title ~ .collapse-content h5:last-of-type + pre + div {
+    display: none;
+}
