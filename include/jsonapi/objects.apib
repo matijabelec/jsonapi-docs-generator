@@ -1,0 +1,19 @@
+## ResourceIdentifier (object)
++ type: `{resource-type}` (string, required)
++ id: `2311` (string, required)
+
+## ResourceObject (ResourceIdentifier)
+
+## ErrorObject (object)
+
+## ResourceNotFoundErrorObject (ErrorObject)
++ status: `404` (string)
++ title: `Resource Not Found` (string)
++ detail: `Resource not found.` (string)
+
+## InvalidAttributeErrorObject (ErrorObject)
++ status: `422` (string)
++ source (object)
+    + pointer: `/data/attributes/attributeName` (string)
++ title: `Invalid Attribute` (string)
++ detail: `Attribute must contain at least three characters.` (string)
